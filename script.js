@@ -22,12 +22,15 @@ class book {
             </div>
         </div>`
 
+        //Création du composant de deletion de cartes
         const deleteCard = document.getElementsByClassName('deleteCards');
+        //Je fais un tableau qui permet d'identifier la carte à supprimer
         for (let i = 0; i < deleteCard.length; i++) {
             deleteCard[i].addEventListener('click', this.deleteThisCard.bind(this));
         }
     }
 
+    //Méthode qui permet de supprimer la carte du livre
     deleteThisCard() {
         event.target.parentNode.parentNode.parentNode.remove();
     }
