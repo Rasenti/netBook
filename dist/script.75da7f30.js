@@ -139,12 +139,17 @@ var book = /*#__PURE__*/function () {
       console.log(this.title + " by " + this.author + " with " + this.cover);
       //Je crée le HTML qui permet d'afficher la carte du livre avec un innerHTML situé dans la div bookContainer
       var bookContainer = document.getElementById('bookContainer');
-      bookContainer.innerHTML += "\n        <div class=\"col-md-3\">\n            <div class=\"card\" style=\"width: 15rem;\">\n                <img src=\"" + this.cover + "\" class=\"card-img-top\" alt=\"Film cover picture\">\n                <div class=\"cardBody\">\n                    <h5 class=\"cardTitle\">" + this.title + "</h5>\n                    <p class=\"cardText\">" + this.author.toUpperCase() + "</p>\n                    <button class=\"deleteCards\">Delete</button>\n                </div>\n            </div>\n        </div>";
+      bookContainer.innerHTML += "\n        <div class=\"col-md-3\">\n            <div class=\"card\" style=\"width: 15rem;\">\n                <img src=\"" + this.cover + "\" class=\"card-img-top\" alt=\"Film cover picture\">\n                <div class=\"card-body\">\n                    <h5 class=\"card-title\">" + this.title + "</h5>\n                    <p class=\"card-text\">" + this.author.toUpperCase() + "</p>\n                    <button class=\"deleteCards\">Delete</button>\n                </div>\n            </div>\n        </div>";
+
+      //Création du composant de deletion de cartes
       var deleteCard = document.getElementsByClassName('deleteCards');
+      //Je fais un tableau qui permet d'identifier la carte à supprimer
       for (var i = 0; i < deleteCard.length; i++) {
         deleteCard[i].addEventListener('click', this.deleteThisCard.bind(this));
       }
     }
+
+    //Méthode qui permet de supprimer la carte du livre
   }, {
     key: "deleteThisCard",
     value: function deleteThisCard() {
@@ -200,7 +205,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55066" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58160" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

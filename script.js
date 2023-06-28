@@ -14,9 +14,9 @@ class book {
         <div class="col-md-3">
             <div class="card" style="width: 15rem;">
                 <img src="`+ this.cover +`" class="card-img-top" alt="Film cover picture">
-                <div class="cardBody">
-                    <h5 class="cardTitle">`+ this.title +`</h5>
-                    <p class="cardText">`+ this.author.toUpperCase() +`</p>
+                <div class="card-body">
+                    <h5 class="card-title">`+ this.title +`</h5>
+                    <p class="card-text">`+ this.author.toUpperCase() +`</p>
                     <button class="deleteCards">Delete</button>
                 </div>
             </div>
