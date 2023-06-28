@@ -2,8 +2,9 @@ body {
     background-color: rgb(24, 24, 24);
     color: rgb(231, 231, 231);
 }
-h1 {
+#pulse {
     color: rgb(242, 47, 47);
+    display: none;
 }
 
 .btn {
@@ -17,5 +18,5 @@ h1 {
 }
 
 #show {
-    
+
 }

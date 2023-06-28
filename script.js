@@ -48,3 +48,8 @@ form.addEventListener('submit', (e) => {
     });
 
 });
+
+$(document).ready(function () {
+    let heading = $("#pulse");
+    heading.fadeIn(2000);
+});
