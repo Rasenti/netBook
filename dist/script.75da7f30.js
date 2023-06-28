@@ -139,7 +139,16 @@ var book = /*#__PURE__*/function () {
       console.log(this.title + " by " + this.author + " with " + this.cover);
       //Je crée le HTML qui permet d'afficher la carte du livre avec un innerHTML situé dans la div bookContainer
       var bookContainer = document.getElementById('bookContainer');
-      bookContainer.innerHTML += "\n        <div class=\"col-md-3\">\n            <div class=\"card \" style=\"width: 15rem;\">\n                <img src=\"" + this.cover + "\" class=\"card-img-top\" alt=\"Film cover picture\">\n                <div class=\"card-body\">\n                    <h5 class=\"card-title\">" + this.title + "</h5>\n                    <p class=\"card-text\">" + this.author.toUpperCase() + "</p>\n                </div>\n            </div>\n        </div>";
+      bookContainer.innerHTML += "\n        <div class=\"col-md-3\">\n            <div class=\"card\" style=\"width: 15rem;\">\n                <img src=\"" + this.cover + "\" class=\"card-img-top\" alt=\"Film cover picture\">\n                <div class=\"cardBody\">\n                    <h5 class=\"cardTitle\">" + this.title + "</h5>\n                    <p class=\"cardText\">" + this.author.toUpperCase() + "</p>\n                    <button class=\"deleteCards\">Delete</button>\n                </div>\n            </div>\n        </div>";
+      var deleteCard = document.getElementsByClassName('deleteCards');
+      for (var i = 0; i < deleteCard.length; i++) {
+        deleteCard[i].addEventListener('click', this.deleteThisCard.bind(this));
+      }
+    }
+  }, {
+    key: "deleteThisCard",
+    value: function deleteThisCard() {
+      event.target.parentNode.parentNode.parentNode.remove();
     }
   }]);
   return book;
@@ -159,13 +168,9 @@ form.addEventListener('submit', function (e) {
   var newBook = new book(e.target.inputName.value, e.target.inputAuthor.value, e.target.inputCover.value);
   newBook.display();
   form.reset();
-  //Animation de la carte : si on clique sur la carte le texte se rétracte ou se remet en place.
-  $(document).ready(function () {
-    $('.card').click(function () {
-      $('.card-body').toggle();
-    });
-  });
 });
+
+//Animation du titre qui apparait doucement
 $(document).ready(function () {
   var heading = $("#pulse");
   heading.fadeIn(2000);
@@ -195,7 +200,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54557" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55066" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

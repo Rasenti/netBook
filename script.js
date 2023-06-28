@@ -12,14 +12,24 @@ class book {
         const bookContainer = document.getElementById('bookContainer');
         bookContainer.innerHTML += `
         <div class="col-md-3">
-            <div class="card " style="width: 15rem;">
+            <div class="card" style="width: 15rem;">
                 <img src="`+ this.cover +`" class="card-img-top" alt="Film cover picture">
-                <div class="card-body">
-                    <h5 class="card-title">`+ this.title +`</h5>
-                    <p class="card-text">`+ this.author.toUpperCase() +`</p>
+                <div class="cardBody">
+                    <h5 class="cardTitle">`+ this.title +`</h5>
+                    <p class="cardText">`+ this.author.toUpperCase() +`</p>
+                    <button class="deleteCards">Delete</button>
                 </div>
             </div>
         </div>`
+
+        const deleteCard = document.getElementsByClassName('deleteCards');
+        for (let i = 0; i < deleteCard.length; i++) {
+            deleteCard[i].addEventListener('click', this.deleteThisCard.bind(this));
+        }
+    }
+
+    deleteThisCard() {
+        event.target.parentNode.parentNode.parentNode.remove();
     }
 }
 
@@ -39,16 +49,9 @@ form.addEventListener('submit', (e) => {
     let newBook = new book(e.target.inputName.value, e.target.inputAuthor.value, e.target.inputCover.value);
     newBook.display();
     form.reset();
-    //Animation de la carte : si on clique sur la carte le texte se rétracte ou se remet en place.
-    $(document).ready(function () {
-        $('.card').click(() => {
-            $('.card-body').toggle();
-        });
-        
-    });
-
 });
 
+//Animation du titre qui apparait doucement
 $(document).ready(function () {
     let heading = $("#pulse");
     heading.fadeIn(2000);

@@ -17,8 +17,15 @@ body {
     color: rgb(24, 24, 24);
 }
 
-#show {
+.card {
+    margin : 20px;
+}
 
+.deleteCards {
+    background-color: rgb(242, 47, 47);
+    border-color: rgb(242, 47, 47);
+    color: white;
+    border-radius: 4px;
 }
 
 /*# sourceMappingURL=/style.e308ff8e.css.map */
