@@ -158,7 +158,7 @@ form.addEventListener('submit', function (e) {
   //Création d'un nouvel objet book
   var newBook = new book(e.target.inputName.value, e.target.inputAuthor.value, e.target.inputCover.value);
   newBook.display();
-
+  form.reset();
   //Animation de la carte : si on clique sur la carte le texte se rétracte ou se remet en place.
   $(document).ready(function () {
     $('.card').click(function () {
@@ -191,7 +191,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49938" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53056" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

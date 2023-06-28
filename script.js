@@ -38,12 +38,13 @@ form.addEventListener('submit', (e) => {
     //Création d'un nouvel objet book
     let newBook = new book(e.target.inputName.value, e.target.inputAuthor.value, e.target.inputCover.value);
     newBook.display();
-
+    form.reset();
     //Animation de la carte : si on clique sur la carte le texte se rétracte ou se remet en place.
     $(document).ready(function () {
         $('.card').click(() => {
             $('.card-body').toggle();
         });
+        
     });
 
 });
